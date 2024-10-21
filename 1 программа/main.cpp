@@ -1,56 +1,45 @@
-
-#include "modAlphaCiper.h"
-#include <cctype>
 #include <iostream>
-#include <locale>
 #include <string>
+#include "header.h"
+
 using namespace std;
 
+void check(const string& text, const string& key, bool destructCipherText = false) {
+    try {
+        modAlphaCipher cipher(key);
+        string cipherText = cipher.encrypt(text);
 
-bool isValid(const wstring& s) {          // проверка, чтобы строка состояла только из прописных букв
-  locale loc("ru_RU.UTF-8");              // Устанавливаем локаль для русского языка
-  for (auto c : s) {
-    if (!isalpha(c, loc) || !isupper(c, loc)) {
-      return false;
+        if (destructCipherText) {
+            cipherText += static_cast<char>(32); // Добавляем пробел, если destructCipherText == true
+        }
+
+        string decryptedText = cipher.decrypt(cipherText);
+        cout << "Ключ = " << key << endl;
+        cout << "Открытый текст: " << text << endl;
+        cout << "Зашифрованный текст: " << cipherText << endl;
+        cout << "Расшифрованный текст: " << decryptedText << endl;
+    } catch (const cipher_error &e) {
+        cerr << "Ошибка: " << e.what() << endl;
+    } catch (const std::exception &e) {
+        cerr << "Ошибка: " << e.what() << endl;
     }
-  }
-  return true;
 }
 
-int main(int argc, char** argv)
-{   locale loc("ru_RU.UTF-8");
-    locale::global(loc);
-    wstring key;
-    wstring text;
-    unsigned op;
-    wcout << L"Введите ключ: ";
-    wcin >> key;
-    if(!isValid(key)) {
-        wcerr << L"Был введён некорректный ключ\n"<<endl;
-        return 1;
-    }
-    
-    wcout << L"ключ был загружен\n"<<endl;
-    
-    modAlphaCipher cipher(key);
-    do {
-        wcout << L"Что вы хотите сделать?(0-выйти, 1-зашифровать, 2-расшифровать): ";
-        wcin >> op;
-        if(op > 2) {
-            wcout << L"Неверная функция\n";
-        } else if(op > 0) {
-            wcout << L"Введите текст: ";
-            wcin >> text;
-            if(isValid(text)) {
-                if(op == 1) {
-                    wcout << L"Вот расшифрованый текст: " << cipher.encrypt(text) << endl;
-                } else {
-                    wcout << L"Введите текст, который хотите расшифровать: " << cipher.decrypt(text) << endl;
-                }
-            } else {
-                wcout << L"Операция прервана\n";
-            }
-        }
-    } while(op != 0);
+int main() {
+    check("КОТЫ", "КЛЮЧ");
+    cout << "испытание 1\n" << endl;
+    check("КОТЫ", "Ключ");
+    cout << "испытание 2\n" << endl;
+    check("КОТЫ", "");
+    cout << "испытание 3\n" << endl;
+    check("КОТЫ", "Клю4ик");
+    cout << "испытание 4\n" << endl;
+    check("КО ТЫ", "КЛЮЧ");
+    cout << "испытание 5\n" << endl;
+    check("102", "КЛЮЧ");
+    cout << "испытание 6\n" << endl;
+    check("КОТЫ", "КЛЮЧ", true);
+    cout << "испытание 7\n" << endl;
+
     return 0;
 }
