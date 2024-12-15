@@ -1,5 +1,4 @@
 #include "header.h"
-
 #include <cstdint>
 //-----------------------------------------------------------------------------------------------------------
 Ciper::Ciper(const wstring& text, const int keys)
@@ -41,6 +40,8 @@ Ciper::Ciper(const wstring& text, const int keys)
 //-----------------------------------------------------------------------------------------------------------
 wstring Ciper::shifr()
 {
+        wstring result1;
+        
     // тут мы типо ну заполняем матрицу слева направо и сверху вниз
     int row = 0, col = 0;
     for(wchar_t ch : ish) {
@@ -57,55 +58,50 @@ wstring Ciper::shifr()
         for(int i = 0; i < stroki; ++i) {
             // Проверяем, есть ли символ в текущей позиции матрицы
             if(i < static_cast<int>(matrix.size()) and j < static_cast<int>(matrix[i].size())) {
-                result += matrix[i][j];
+                result1 += matrix[i][j];
             }
         }
     }
-
-    for(int i = 0; i < static_cast<int>(result.length()); ++i) {
-        if(result[i] == '.') { //дополняем точками пропуск
-            result.erase(i, 1);
+    ish=result1;
+    for(int i = 0; i < static_cast<int>(result1.length()); ++i) {
+        if(result1[i] == '.') { //дополняем точками пропуск
+            result1.erase(i, 1);
             --i;
         }
     }
-    return result;
+    return result1;
 }
 //-----------------------------------------------------------------------------------------------------------
 wstring Ciper::rasshifr()
 {
-int row = 0, col = 0;   
-  for (wchar_t ch : ish) {   
-    matrix[row][col++] = ch;        //цикл идет по строке   
-    if (col == key) {               //если количество символов уже равняется столбцам то    
-      col = 0;                      //прибавим 1 к строке, переходя на другую   
-      row++;   
-    }   
-  }   
-          
-    // Идем по столбцам справа налево      
-    for (int j = key - 1; j >= 0; --j) {   
-        // Идем по строкам сверху вниз   
-        for (int i = 0; i < stroki; ++i) {   
-            // Проверяем, есть ли символ в текущей позиции матрицы   
-            if (i < static_cast<int>(matrix.size()) and j < static_cast<int>(matrix[i].size())) {   
-                result += matrix[i][j];   
-            }   
-        }   
-    } 
- 
-      for (int i = 0; i < static_cast<int>(result.length()); ++i) { 
-        if (result[i] == '.') {                                    //точки уберем 
-            result.erase(i, 1); 
+        wstring result2;
+
+int n=0;
+        for (int j = key-1; j >= 0; --j){
+            for (int i = 0; i < stroki; ++i) { 
+                matrix[i][j]=ish[n];
+                n++;
+        }}
+
+    //считали матрицу слева направо сверху вниз
+        for (int i=0; i<stroki; i++){
+            for (int j=0; j<key; j++){
+    result2+=matrix[i][j];}}
+    
+ish = result2;
+      for (int i = 0; i < result2.length(); ++i) { 
+        if (result2[i] == '.') {                                    //точки уберем 
+            result2.erase(i, 1); 
     --i;}} 
-       return result;  
+       return result2;  
 }
 
 //-----------------------------------------------------------------------------------------------------------
 wstring Ciper::check()
 {
 
-    if(static_cast<int>(ish.length()) <= key) {
-        throw size_error("текст неккоректного размера, он должен быть больше ключа!");
+    if(static_cast<int>(ish.length())<=key) {
+        throw size_error("ключ неккоректного размера, он должен быть строго меньше текста!");
     }
 
     wstring r_alf = L"абвгдеёжзийклмнопрстуфхцчшщэюяьъыФБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯЪЬЫ";

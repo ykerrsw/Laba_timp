@@ -1,6 +1,6 @@
-#include "header.h"
+/*#include "header.h"*/
 
-#include <cctype>
+/*#include <cctype>
 #include <cmath>
 #include <iostream>
 #include <locale>
@@ -70,5 +70,5 @@ int main()
     }
     catch(const invalid_argument& e){
             cerr << "Ошибка: " << e.what() << endl;
-            return 1;}  
+            return 1;}  */
 }

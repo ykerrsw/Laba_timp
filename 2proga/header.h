@@ -4,7 +4,8 @@
 #include <locale>   
 #include <string>   
 #include <cmath>   
-#include <vector>   
+#include <vector>  
+#pragma once
 using namespace std;   
   
 class Ciper{   
