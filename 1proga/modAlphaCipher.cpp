@@ -48,18 +48,22 @@ inline std::wstring modAlphaCipher::getValidKey(const std::wstring& s) {
         throw cipher_error("нулевой ключ");
     }
 
-    std::wstring tmp = s;
-    wstring rez = L"";
-
-    for (auto& c : tmp) {
-        if ((c >= L'А' && c <= L'Я') || (c >= L'а' && c <= L'я')) {
-            if (c >= L'а' && c <= L'я'){
-               rez+=towupper(c); }
+    std::wstring rez = L"";
+    for (wchar_t c : s) {
+        // Проверяем код символа (может потребовать расширения диапазонов)
+        if ((c >= L'А' && c <= L'Я') || (c >= L'а' && c <= L'я') ||
+            (c >= L'A' && c <= L'Z') || (c >= L'a' && c <= L'z') ||
+            (c >= L'0' && c <= L'9')) { //добавлено для цифр
+            rez += towupper(c);
+        }
     }
+    if (rez.empty()) {
+        throw cipher_error("Ключ содержит недопустимые символы");
+    }
+    return rez;
 }
-if (rez.empty()){
-    return s;}
-else{return rez;}}
+
+
 
 inline wstring modAlphaCipher::getValidOpenText(const wstring& s) {
     wstring ws = s;
