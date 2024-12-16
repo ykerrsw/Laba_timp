@@ -1,0 +1,63 @@
+\hypertarget{header_8h_source}{}\doxysection{header.\+h}
+\label{header_8h_source}\index{/home/stud/Desktop/дз/Laba\_timp/1proga/header.h@{/home/stud/Desktop/дз/Laba\_timp/1proga/header.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classmodAlphaCipher}{modAlphaCipher}} \{}
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11 \textcolor{comment}{/*}}
+\DoxyCodeLine{12 \textcolor{comment}{ * @brief Алфавит из русских букв}}
+\DoxyCodeLine{13 \textcolor{comment}{* @details используется для шифрования/дешифрования}}
+\DoxyCodeLine{14 \textcolor{comment}{ */}}
+\DoxyCodeLine{15     \textcolor{keyword}{const} wstring numAlpha = L\textcolor{stringliteral}{"{}АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"{}}; \textcolor{comment}{// Алфавит}}
+\DoxyCodeLine{16 \textcolor{comment}{/*}}
+\DoxyCodeLine{17 \textcolor{comment}{ * @brief Массив, содержащий русские буквы и соответствующие им порядковые номера}}
+\DoxyCodeLine{18 \textcolor{comment}{* @details  используется для шифрования/дешифрования}}
+\DoxyCodeLine{19 \textcolor{comment}{ */}}
+\DoxyCodeLine{20     map<wchar\_t, int> alphaNum; \textcolor{comment}{// Соответствие букв и индексов  string char}}
+\DoxyCodeLine{21 \textcolor{comment}{/*}}
+\DoxyCodeLine{22 \textcolor{comment}{ * @brief Ключ в виде вектора}}
+\DoxyCodeLine{23 \textcolor{comment}{ * @details используется для шифрования}}
+\DoxyCodeLine{24 \textcolor{comment}{ */}}
+\DoxyCodeLine{25     vector<int> key; \textcolor{comment}{// Ключ шифрования}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     vector<int> convert(\textcolor{keyword}{const} wstring\& s); \textcolor{comment}{// Преобразование строки в вектор индексов}}
+\DoxyCodeLine{28     wstring convert(\textcolor{keyword}{const} vector<int>\& v); \textcolor{comment}{// Преобразование вектора индексов в строку}}
+\DoxyCodeLine{29     wstring getValidKey(\textcolor{keyword}{const} wstring\& s); \textcolor{comment}{// Проверка и получение валидного ключа}}
+\DoxyCodeLine{30     wstring getValidOpenText(\textcolor{keyword}{const} wstring\& s); \textcolor{comment}{// Проверка и получение валидного открытого текста}}
+\DoxyCodeLine{31     wstring getValidCipherText(\textcolor{keyword}{const} wstring\& s); \textcolor{comment}{// Проверка и получение валидного зашифрованного текста}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \mbox{\hyperlink{classmodAlphaCipher}{modAlphaCipher}}() = \textcolor{keyword}{delete}; \textcolor{comment}{// Удаляем конструктор по умолчанию}}
+\DoxyCodeLine{35     \textcolor{keyword}{explicit} \mbox{\hyperlink{classmodAlphaCipher}{modAlphaCipher}}(\textcolor{keyword}{const} wstring\& skey); \textcolor{comment}{// Конструктор с ключом}}
+\DoxyCodeLine{36     wstring \mbox{\hyperlink{classmodAlphaCipher_ad540be3199da225a63a9589ca62347ce}{encrypt}}(\textcolor{keyword}{const} wstring\& open\_text); \textcolor{comment}{// Шифрование текста}}
+\DoxyCodeLine{37     wstring decrypt(\textcolor{keyword}{const} wstring\& cipher\_text); \textcolor{comment}{// Дешифрование текста}}
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 \textcolor{comment}{/*}}
+\DoxyCodeLine{40 \textcolor{comment}{ * @brief Класс для обработки ошибок}}
+\DoxyCodeLine{41 \textcolor{comment}{ * @details }}
+\DoxyCodeLine{42 \textcolor{comment}{ */}}
+\DoxyCodeLine{43 \textcolor{keyword}{class }\mbox{\hyperlink{classcipher__error}{cipher\_error}} : \textcolor{keyword}{public} std::invalid\_argument \{}
+\DoxyCodeLine{44 \textcolor{keyword}{public}:}
+\DoxyCodeLine{45 \textcolor{comment}{/*}}
+\DoxyCodeLine{46 \textcolor{comment}{   * @brief Конструктор класса исключений cipher\_error.}}
+\DoxyCodeLine{47 \textcolor{comment}{   *}}
+\DoxyCodeLine{48 \textcolor{comment}{   * @param what\_arg Строковое сообщение об ошибке.}}
+\DoxyCodeLine{49 \textcolor{comment}{   */}}
+\DoxyCodeLine{50     \textcolor{keyword}{explicit} \mbox{\hyperlink{classcipher__error}{cipher\_error}}(\textcolor{keyword}{const} std::string\& what\_arg) : std::invalid\_argument(what\_arg) \{\}}
+\DoxyCodeLine{51      \textcolor{comment}{/*}}
+\DoxyCodeLine{52 \textcolor{comment}{   * @brief Конструктор класса исключений cipher\_error.}}
+\DoxyCodeLine{53 \textcolor{comment}{   *}}
+\DoxyCodeLine{54 \textcolor{comment}{   * @param what\_arg Символьная строка об ошибке.}}
+\DoxyCodeLine{55 \textcolor{comment}{   */}}
+\DoxyCodeLine{56     \textcolor{keyword}{explicit} \mbox{\hyperlink{classcipher__error}{cipher\_error}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* what\_arg) : std::invalid\_argument(what\_arg) \{\}}
+\DoxyCodeLine{57 \};}
+
+\end{DoxyCode}

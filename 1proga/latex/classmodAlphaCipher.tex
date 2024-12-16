@@ -1,0 +1,47 @@
+\hypertarget{classmodAlphaCipher}{}\doxysection{mod\+Alpha\+Cipher Class Reference}
+\label{classmodAlphaCipher}\index{modAlphaCipher@{modAlphaCipher}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmodAlphaCipher_a5e2b42f76c91038870412d0b14d31544}{mod\+Alpha\+Cipher}} (const wstring \&skey)
+\begin{DoxyCompactList}\small\item\em Класс для шифровки текста \end{DoxyCompactList}\item 
+wstring \mbox{\hyperlink{classmodAlphaCipher_ad540be3199da225a63a9589ca62347ce}{encrypt}} (const wstring \&open\+\_\+text)
+\begin{DoxyCompactList}\small\item\em Метод для шифровки текста \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmodAlphaCipher_ae7880f197cbe27f8659455cc4c9020fb}\label{classmodAlphaCipher_ae7880f197cbe27f8659455cc4c9020fb}} 
+wstring {\bfseries decrypt} (const wstring \&cipher\+\_\+text)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmodAlphaCipher_a5e2b42f76c91038870412d0b14d31544}\label{classmodAlphaCipher_a5e2b42f76c91038870412d0b14d31544}} 
+\index{modAlphaCipher@{modAlphaCipher}!modAlphaCipher@{modAlphaCipher}}
+\index{modAlphaCipher@{modAlphaCipher}!modAlphaCipher@{modAlphaCipher}}
+\doxysubsubsection{\texorpdfstring{modAlphaCipher()}{modAlphaCipher()}}
+{\footnotesize\ttfamily mod\+Alpha\+Cipher\+::mod\+Alpha\+Cipher (\begin{DoxyParamCaption}\item[{const wstring \&}]{skey }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Класс для шифровки текста 
+
+Для зашифровывания и расшифровывания предназначены методы encrypt и decrypt. \begin{DoxyWarning}{Warning}
+Реализация для русскогоg языка 
+\end{DoxyWarning}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmodAlphaCipher_ad540be3199da225a63a9589ca62347ce}\label{classmodAlphaCipher_ad540be3199da225a63a9589ca62347ce}} 
+\index{modAlphaCipher@{modAlphaCipher}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!modAlphaCipher@{modAlphaCipher}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily wstring mod\+Alpha\+Cipher\+::encrypt (\begin{DoxyParamCaption}\item[{const wstring \&}]{open\+\_\+text }\end{DoxyParamCaption})}
+
+
+
+Метод для шифровки текста 
+
+Передаётся текст, который преобразуется в шифр методом прибавления к каждому символу ключа. Для того, чтобы не выходить за границы алфавита, используется деление по модулю. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/stud/\+Desktop/дз/\+Laba\+\_\+timp/1proga/header.\+h\item 
+/home/stud/\+Desktop/дз/\+Laba\+\_\+timp/1proga/mod\+Alpha\+Cipher.\+cpp\end{DoxyCompactItemize}
