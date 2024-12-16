@@ -1,0 +1,35 @@
+\hypertarget{header_8h_source}{}\doxysection{header.\+h}
+\label{header_8h_source}\index{/home/stud/Desktop/дз/Laba\_timp/2proga/header.h@{/home/stud/Desktop/дз/Laba\_timp/2proga/header.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <stdexcept>} }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <iostream>}   }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <cctype>}   }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <locale>}   }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}   }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cmath>}   }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}  }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{9 \textcolor{keyword}{using namespace }std;   }
+\DoxyCodeLine{10   }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classCiper}{Ciper}}\{   }
+\DoxyCodeLine{12 \textcolor{keyword}{private}:    }
+\DoxyCodeLine{17     vector<vector<wchar\_t>> \mbox{\hyperlink{classCiper_af7f61e7c923914b1b4ada4aa34ed1c3e}{matrix}}; }
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} \mbox{\hyperlink{classCiper_a3a8e71583a2e9fea4a375233a8507d86}{key}};  }
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} \mbox{\hyperlink{classCiper_a5b3d856b4990a4ab5a25eb97beef2a16}{stroki}};   }
+\DoxyCodeLine{29     wstring \mbox{\hyperlink{classCiper_aa5e650af37b9755afe555ce8ff0699f4}{result}}; }
+\DoxyCodeLine{33     wstring \mbox{\hyperlink{classCiper_a485c2d48eed123c944673d6b59155f82}{ish}};  }
+\DoxyCodeLine{34 \textcolor{keyword}{public}:    }
+\DoxyCodeLine{35     \mbox{\hyperlink{classCiper}{Ciper}}() = \textcolor{keyword}{delete};  }
+\DoxyCodeLine{36     \mbox{\hyperlink{classCiper}{Ciper}}(\textcolor{keyword}{const} wstring\& text, \textcolor{keyword}{const} \textcolor{keywordtype}{int} keys);  }
+\DoxyCodeLine{37     wstring \mbox{\hyperlink{classCiper_af0b22bb517519cb1a9308d146609faa0}{shifr}}();  }
+\DoxyCodeLine{38     wstring \mbox{\hyperlink{classCiper_ac5326c9a92636739e179e27d230cb7d1}{rasshifr}}();  }
+\DoxyCodeLine{39     wstring \mbox{\hyperlink{classCiper_ae8ee843eff53ee89b3f7a3e9226dfce4}{check}}(); }
+\DoxyCodeLine{40     \}; }
+\DoxyCodeLine{41      }
+\DoxyCodeLine{42 \textcolor{keyword}{class }\mbox{\hyperlink{classsize__error}{size\_error}}: \textcolor{keyword}{public} std::logic\_error \{ }
+\DoxyCodeLine{43 \textcolor{keyword}{public}: }
+\DoxyCodeLine{44     \textcolor{keyword}{explicit} \mbox{\hyperlink{classsize__error}{size\_error}}(\textcolor{keyword}{const} std::string\& message) : std::logic\_error(message) \{\};  \textcolor{comment}{//конструктор исключения, после двоеточия происх. ИНИЦИАЛИЗАЦИЯ родительского класса!! сообщением переданным }}
+\DoxyCodeLine{45 \};}
+
+\end{DoxyCode}

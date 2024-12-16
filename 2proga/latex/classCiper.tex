@@ -1,0 +1,132 @@
+\hypertarget{classCiper}{}\doxysection{Класс Ciper}
+\label{classCiper}\index{Ciper@{Ciper}}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCiper_ae2bb728f69a4b9f3d583d51cdc1128ce}{Ciper}} (const wstring \&text, const int keys)
+\begin{DoxyCompactList}\small\item\em Шифрование методом маршрутной перестановки \end{DoxyCompactList}\item 
+wstring \mbox{\hyperlink{classCiper_af0b22bb517519cb1a9308d146609faa0}{shifr}} ()
+\begin{DoxyCompactList}\small\item\em функция шифрования \end{DoxyCompactList}\item 
+wstring \mbox{\hyperlink{classCiper_ac5326c9a92636739e179e27d230cb7d1}{rasshifr}} ()
+\begin{DoxyCompactList}\small\item\em функция дешифрования \end{DoxyCompactList}\item 
+wstring \mbox{\hyperlink{classCiper_ae8ee843eff53ee89b3f7a3e9226dfce4}{check}} ()
+\begin{DoxyCompactList}\small\item\em функция проверки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ vector$<$ wchar\+\_\+t $>$ $>$ \mbox{\hyperlink{classCiper_af7f61e7c923914b1b4ada4aa34ed1c3e}{matrix}}
+\begin{DoxyCompactList}\small\item\em матрица для заполнения \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCiper_a3a8e71583a2e9fea4a375233a8507d86}{key}}
+\begin{DoxyCompactList}\small\item\em Ключ (количество столбцов матрицы) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCiper_a5b3d856b4990a4ab5a25eb97beef2a16}{stroki}}
+\begin{DoxyCompactList}\small\item\em количество строк матрицы \end{DoxyCompactList}\item 
+wstring \mbox{\hyperlink{classCiper_aa5e650af37b9755afe555ce8ff0699f4}{result}}
+\item 
+wstring \mbox{\hyperlink{classCiper_a485c2d48eed123c944673d6b59155f82}{ish}}
+\begin{DoxyCompactList}\small\item\em Исходный текст \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classCiper_ae2bb728f69a4b9f3d583d51cdc1128ce}\label{classCiper_ae2bb728f69a4b9f3d583d51cdc1128ce}} 
+\index{Ciper@{Ciper}!Ciper@{Ciper}}
+\index{Ciper@{Ciper}!Ciper@{Ciper}}
+\doxysubsubsection{\texorpdfstring{Ciper()}{Ciper()}}
+{\footnotesize\ttfamily Ciper\+::\+Ciper (\begin{DoxyParamCaption}\item[{const wstring \&}]{text,  }\item[{const int}]{keys }\end{DoxyParamCaption})}
+
+
+
+Шифрование методом маршрутной перестановки 
+
+заполняется пустая матрица, которая добавляет к тексту точки Для зашифровывания и расшифровывания предназначены методы shifr и rasshifr. \begin{DoxyWarning}{Предупреждения}
+Реализация для русскогоg языка 
+\end{DoxyWarning}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classCiper_ae8ee843eff53ee89b3f7a3e9226dfce4}\label{classCiper_ae8ee843eff53ee89b3f7a3e9226dfce4}} 
+\index{Ciper@{Ciper}!check@{check}}
+\index{check@{check}!Ciper@{Ciper}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily wstring Ciper\+::check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+функция проверки 
+
+создается 3 алфавита\+: 1 -\/ русский, 2 -\/ латинский, 3 -\/ цифровой. Переданный текст и ключ проверяются на содержание в них запрещённых символов (латинский, цифра). \mbox{\Hypertarget{classCiper_ac5326c9a92636739e179e27d230cb7d1}\label{classCiper_ac5326c9a92636739e179e27d230cb7d1}} 
+\index{Ciper@{Ciper}!rasshifr@{rasshifr}}
+\index{rasshifr@{rasshifr}!Ciper@{Ciper}}
+\doxysubsubsection{\texorpdfstring{rasshifr()}{rasshifr()}}
+{\footnotesize\ttfamily wstring Ciper\+::rasshifr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+функция дешифрования 
+
+матрица заполняется права налево и сверху вниз Пропуск дополняется точками \mbox{\Hypertarget{classCiper_af0b22bb517519cb1a9308d146609faa0}\label{classCiper_af0b22bb517519cb1a9308d146609faa0}} 
+\index{Ciper@{Ciper}!shifr@{shifr}}
+\index{shifr@{shifr}!Ciper@{Ciper}}
+\doxysubsubsection{\texorpdfstring{shifr()}{shifr()}}
+{\footnotesize\ttfamily wstring Ciper\+::shifr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+функция шифрования 
+
+создается матрица необходимого размера и заполняется справа налево Пропуск дополняется точками 
+
+\doxysubsection{Данные класса}
+\mbox{\Hypertarget{classCiper_a485c2d48eed123c944673d6b59155f82}\label{classCiper_a485c2d48eed123c944673d6b59155f82}} 
+\index{Ciper@{Ciper}!ish@{ish}}
+\index{ish@{ish}!Ciper@{Ciper}}
+\doxysubsubsection{\texorpdfstring{ish}{ish}}
+{\footnotesize\ttfamily wstring Ciper\+::ish\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Исходный текст 
+
+передаётся в качестве аргумента. Текст, который подвергнется шифрованию/дешифрованию \mbox{\Hypertarget{classCiper_a3a8e71583a2e9fea4a375233a8507d86}\label{classCiper_a3a8e71583a2e9fea4a375233a8507d86}} 
+\index{Ciper@{Ciper}!key@{key}}
+\index{key@{key}!Ciper@{Ciper}}
+\doxysubsubsection{\texorpdfstring{key}{key}}
+{\footnotesize\ttfamily int Ciper\+::key\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ключ (количество столбцов матрицы) 
+
+передаётся в качестве аргумента \mbox{\Hypertarget{classCiper_af7f61e7c923914b1b4ada4aa34ed1c3e}\label{classCiper_af7f61e7c923914b1b4ada4aa34ed1c3e}} 
+\index{Ciper@{Ciper}!matrix@{matrix}}
+\index{matrix@{matrix}!Ciper@{Ciper}}
+\doxysubsubsection{\texorpdfstring{matrix}{matrix}}
+{\footnotesize\ttfamily vector$<$vector$<$wchar\+\_\+t$>$ $>$ Ciper\+::matrix\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+матрица для заполнения 
+
+С помощью данного атрибута совершается маршрутная перестановка Размер матрицы определяется длиной введённого текста \mbox{\Hypertarget{classCiper_aa5e650af37b9755afe555ce8ff0699f4}\label{classCiper_aa5e650af37b9755afe555ce8ff0699f4}} 
+\index{Ciper@{Ciper}!result@{result}}
+\index{result@{result}!Ciper@{Ciper}}
+\doxysubsubsection{\texorpdfstring{result}{result}}
+{\footnotesize\ttfamily wstring Ciper\+::result\hspace{0.3cm}{\ttfamily [private]}}
+
+результирующая строка, которая должна быть возвращена после шифрования/дешифрования
+
+возвращается шифратором/дешифратором \mbox{\Hypertarget{classCiper_a5b3d856b4990a4ab5a25eb97beef2a16}\label{classCiper_a5b3d856b4990a4ab5a25eb97beef2a16}} 
+\index{Ciper@{Ciper}!stroki@{stroki}}
+\index{stroki@{stroki}!Ciper@{Ciper}}
+\doxysubsubsection{\texorpdfstring{stroki}{stroki}}
+{\footnotesize\ttfamily int Ciper\+::stroki\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+количество строк матрицы 
+
+передаётся в качестве аргумента 
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+/home/stud/\+Desktop/дз/\+Laba\+\_\+timp/2proga/header.\+h\item 
+/home/stud/\+Desktop/дз/\+Laba\+\_\+timp/2proga/mod\+Alpha\+Cipher.\+cpp\end{DoxyCompactItemize}
