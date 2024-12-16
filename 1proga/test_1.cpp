@@ -51,6 +51,9 @@ SUITE(test_z_3) {
 
 SUITE(test_z_4) {
 	TEST(CHECK_4) { CHECK_THROW(wstring_to_string(check(L"102", L"КЛЮЧ")), cipher_error);}};
+	
+SUITE(test_z_5) {
+	TEST(CHECK_5) { CHECK_THROW(wstring_to_string(check(L"", L"КЛЮЧ")), cipher_error);}};
      
 
 int main(int argc, char** argv) {
