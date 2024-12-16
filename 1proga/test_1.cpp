@@ -54,6 +54,9 @@ SUITE(test_z_4) {
 	
 SUITE(test_z_5) {
 	TEST(CHECK_5) { CHECK_THROW(wstring_to_string(check(L"", L"КЛЮЧ")), cipher_error);}};
+
+SUITE(test_z_6) {
+    TEST(CHECK_6) { CHECK_EQUAL(wstring_to_string(L"ХЪРТ КОТЫ"), wstring_to_string(check(L"коты",L"КЛЮЧ")));}};
      
 
 int main(int argc, char** argv) {
