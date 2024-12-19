@@ -1,0 +1,51 @@
+\begin{theindex}
+
+  \item {/home/stud/Desktop/дз/Laba\_timp/2proga/header.h}, 
+		\hyperpage{11}
+
+  \indexspace
+
+  \item {check}
+    \subitem {Ciper}, \hyperpage{8}
+  \item {Ciper}, \hyperpage{7}
+    \subitem {check}, \hyperpage{8}
+    \subitem {Ciper}, \hyperpage{7}
+    \subitem {ish}, \hyperpage{8}
+    \subitem {key}, \hyperpage{9}
+    \subitem {matrix}, \hyperpage{9}
+    \subitem {rasshifr}, \hyperpage{8}
+    \subitem {result}, \hyperpage{9}
+    \subitem {shifr}, \hyperpage{8}
+    \subitem {stroki}, \hyperpage{9}
+
+  \indexspace
+
+  \item {ish}
+    \subitem {Ciper}, \hyperpage{8}
+
+  \indexspace
+
+  \item {key}
+    \subitem {Ciper}, \hyperpage{9}
+
+  \indexspace
+
+  \item {matrix}
+    \subitem {Ciper}, \hyperpage{9}
+
+  \indexspace
+
+  \item {rasshifr}
+    \subitem {Ciper}, \hyperpage{8}
+  \item {result}
+    \subitem {Ciper}, \hyperpage{9}
+
+  \indexspace
+
+  \item {shifr}
+    \subitem {Ciper}, \hyperpage{8}
+  \item {size\_error}, \hyperpage{10}
+  \item {stroki}
+    \subitem {Ciper}, \hyperpage{9}
+
+\end{theindex}

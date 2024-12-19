@@ -5,28 +5,14 @@
 #include "header.h"
 //-------------------------------------------------------------------------------------------
 // Функция для преобразования wstring в string (используя UTF-8)
-std::string wstring_to_string(const std::wstring& wstr) {
+	std::string wstring_to_string(const std::wstring& wstr) {
     std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
     return converter.to_bytes(wstr);
 }
 //-------------------------------------------------------------------------------------------
-wstring check(const wstring& text, const wstring& key, bool destructCipherText = false) {
-	wstring rez1;
-	for (auto i:text){
-        if (not(i==L' ')){
-           rez1+=i;}}
-        modAlphaCipher cipher(key);
-        wstring cipherText = cipher.encrypt(rez1);
-        if (destructCipherText) {
-            cipherText += L" "; 
-        }
-        //wcout << L"Введенный текст: " <<text <<endl; 
-        wstring rez = cipherText + L" " + cipher.decrypt(cipherText); 
-        return rez;}
-//-------------------------------------------------------------------------------------------
 
 SUITE(test_1) {
-    TEST(null_key) {
+    TEST(key) {
         bool exception_caught = false;
         try {
             modAlphaCipher k(L"");
@@ -37,27 +23,91 @@ SUITE(test_1) {
         CHECK(exception_caught);
     }
 };
+//-------------------------------------------------------------------------------------------
+SUITE(test_2) {
+    TEST(key) {
+        bool exception_caught = false;
+        try {
+            modAlphaCipher k(L"КЛЮЧ");
+            std::wstring cipherText = k.encrypt(L"");
+        } catch (const cipher_error& e) {
+            exception_caught = true;
+        }
+        CHECK(exception_caught);
+    }
+};
+//-------------------------------------------------------------------------------------------
+SUITE(test_3) {
+    TEST(key) {
+        bool exception_caught = false;
+        try {
+            modAlphaCipher k(L"КЛЮЧ");
+            std::wstring cipherText = k.encrypt(L"123");
+        } catch (const cipher_error& e) {
+            exception_caught = true;
+        }
+        CHECK(exception_caught);
+    }
+};
+//-------------------------------------------------------------------------------------------
+SUITE(test_4) {
+    TEST(key) {
+        bool exception_caught = false;
+        try {
+            modAlphaCipher k(L"КЛЮЧ");
+            std::wstring cipherText = k.decrypt(L"");
+        } catch (const cipher_error& e) {
+            exception_caught = true;
+        }
+        CHECK(exception_caught);
+    }
+};
+//-------------------------------------------------------------------------------------------
+SUITE(test_5) {
+    TEST(key) {
+        bool exception_caught = false;
+        try {
+            modAlphaCipher k(L"КЛЮЧ");
+            std::wstring cipherText = k.decrypt(L"123");
+        } catch (const cipher_error& e) {
+            exception_caught = true;
+        }
+        CHECK(exception_caught);
+    }
+};
+//-------------------------------------------------------------------------------------------
+
 
 
 SUITE(test_z_1) {
-    TEST(CHECK_1) { CHECK_EQUAL(wstring_to_string(L"ХЪРТ КОТЫ"), wstring_to_string(check(L"КОТЫ",L"КЛЮЧ")));}};
+	modAlphaCipher cipher(L"КЛЮЧ");
+    TEST(CHECK_1) { CHECK_EQUAL(wstring_to_string(L"ХЪРТ"), wstring_to_string(cipher.encrypt(L"КОТЫ")));};};
 
 SUITE(test_z_2) {
-    TEST(CHECK_2) { CHECK_EQUAL(wstring_to_string(L"ХОТЫ КОТЫ"), wstring_to_string(check(L"КОТЫ",L"Ключ")));}};
-
+    modAlphaCipher cipher(L"Ключ");
+    TEST(CHECK_2) { CHECK_EQUAL(wstring_to_string(L"ХОТЫ"), wstring_to_string(cipher.encrypt(L"КОТЫ")));};};
 
 SUITE(test_z_3) {
-    TEST(CHECK_3) { CHECK_EQUAL(wstring_to_string(L"ХЪРТ КОТЫ"), wstring_to_string(check(L"КО ТЫ",L"КЛЮЧ")));}};
+    modAlphaCipher cipher(L"КЛЮЧ");
+    TEST(CHECK_1) { CHECK_EQUAL(wstring_to_string(L"ХЪРТ"), wstring_to_string(cipher.encrypt(L"КО ТЫ")));};};
 
 SUITE(test_z_4) {
-	TEST(CHECK_4) { CHECK_THROW(wstring_to_string(check(L"102", L"КЛЮЧ")), cipher_error);}};
-	
-SUITE(test_z_5) {
-	TEST(CHECK_5) { CHECK_THROW(wstring_to_string(check(L"", L"КЛЮЧ")), cipher_error);}};
+    modAlphaCipher cipher(L"КЛЮЧ");
+    TEST(CHECK_1) { CHECK_EQUAL(wstring_to_string(L"ХЪРТ"), wstring_to_string(cipher.encrypt(L"коты")));};};
 
-SUITE(test_z_6) {
-    TEST(CHECK_6) { CHECK_EQUAL(wstring_to_string(L"ХЪРТ КОТЫ"), wstring_to_string(check(L"коты",L"КЛЮЧ")));}};
-     
+
+
+SUITE(test_n_1) { 
+	modAlphaCipher cipher(L"КЛЮЧ");
+    TEST(CHECK_1) { CHECK_EQUAL(wstring_to_string(L"КОТЫ"), wstring_to_string(cipher.decrypt(L"ХЪРТ")));};};
+
+SUITE(test_n_2) {
+    modAlphaCipher cipher(L"КЛЮЧ");
+    TEST(CHECK_1) { CHECK_EQUAL(wstring_to_string(L"КОТЫ"), wstring_to_string(cipher.decrypt(L"ХЪ РТ")));};};
+    
+SUITE(test_n_3) {
+    modAlphaCipher cipher(L"КЛЮЧ");
+    TEST(CHECK_1) { CHECK_EQUAL(wstring_to_string(L"КОТЫ"), wstring_to_string(cipher.decrypt(L"ХЪРТ")));};};
 
 int main(int argc, char** argv) {
     return UnitTest::RunAllTests();

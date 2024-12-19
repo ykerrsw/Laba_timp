@@ -20,11 +20,24 @@ modAlphaCipher::modAlphaCipher(const wstring& skey) {
  * @details Передаётся текст, который преобразуется в шифр методом прибавления к каждому символу ключа. Для того, чтобы не выходить за границы алфавита, используется деление по модулю.
  */
 wstring modAlphaCipher::encrypt(const wstring& open_text) {
-    vector<int> work = convert(getValidOpenText(open_text));
+	wstring open_text1 = probeli(open_text);
+    vector<int> work = convert(getValidOpenText(open_text1));
     for (unsigned i = 0; i < work.size(); i++)
         work[i] = (work[i] + key[i % key.size()]) % alphaNum.size();
     return convert(work);
 }
+
+/** @brief Метод для расшифровки текста 
+ * @details Передаётся текст, который преобразуется в исходный из шифра методом вычитания из каждого символа ключа. Для того, чтобы не выходить за границы алфавита, используется деление по модулю.
+ */
+wstring modAlphaCipher::decrypt(const wstring& cipher_text) {
+	wstring cipher_text1 = probeli(cipher_text);
+    vector<int> work = convert(getValidCipherText(cipher_text1));
+    for (unsigned i = 0; i < work.size(); i++)
+        work[i] = (work[i] + alphaNum.size() - key[i % key.size()]) % alphaNum.size();
+    return convert(work);
+}
+
 
 /*
  * @brief Метод конвертации текста в вектор из порядковых номеров
@@ -71,7 +84,7 @@ inline std::wstring modAlphaCipher::getValidKey(const std::wstring& s) {
         // Проверяем код символа (может потребовать расширения диапазонов)
         if ((c >= L'А' && c <= L'Я') || (c >= L'а' && c <= L'я') ||
             (c >= L'A' && c <= L'Z') || (c >= L'a' && c <= L'z') ||
-            (c >= L'0' && c <= L'9')) { //добавлено для цифр
+            (c >= L'0' && c <= L'9')) { 
             rez += towupper(c);
         }
     }
@@ -138,4 +151,12 @@ inline wstring modAlphaCipher::getValidCipherText(const wstring& s) {
     }
 
     return ws;
+}
+
+
+wstring modAlphaCipher::probeli(const wstring& open_text){
+wstring rez;
+for (auto i:open_text){
+	if (not(i == ' ')){rez+=i;}}
+return rez;
 }

@@ -35,6 +35,7 @@ public:
     explicit modAlphaCipher(const wstring& skey); // Конструктор с ключом
     wstring encrypt(const wstring& open_text); // Шифрование текста
     wstring decrypt(const wstring& cipher_text); // Дешифрование текста
+    wstring probeli(const wstring& open_text);
 };
 /*
  * @brief Класс для обработки ошибок

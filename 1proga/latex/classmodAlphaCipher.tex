@@ -1,6 +1,6 @@
-\hypertarget{classmodAlphaCipher}{}\doxysection{mod\+Alpha\+Cipher Class Reference}
+\hypertarget{classmodAlphaCipher}{}\doxysection{Класс mod\+Alpha\+Cipher}
 \label{classmodAlphaCipher}\index{modAlphaCipher@{modAlphaCipher}}
-\doxysubsection*{Public Member Functions}
+\doxysubsection*{Открытые члены}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classmodAlphaCipher_a5e2b42f76c91038870412d0b14d31544}{mod\+Alpha\+Cipher}} (const wstring \&skey)
@@ -10,9 +10,39 @@ wstring \mbox{\hyperlink{classmodAlphaCipher_ad540be3199da225a63a9589ca62347ce}{
 \mbox{\Hypertarget{classmodAlphaCipher_ae7880f197cbe27f8659455cc4c9020fb}\label{classmodAlphaCipher_ae7880f197cbe27f8659455cc4c9020fb}} 
 wstring {\bfseries decrypt} (const wstring \&cipher\+\_\+text)
 \end{DoxyCompactItemize}
+\doxysubsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmodAlphaCipher_a2abdae53ae554f35e97332145ef201e1}\label{classmodAlphaCipher_a2abdae53ae554f35e97332145ef201e1}} 
+vector$<$ int $>$ {\bfseries convert} (const wstring \&s)
+\item 
+\mbox{\Hypertarget{classmodAlphaCipher_a247b687296399baaa09f96ce43def048}\label{classmodAlphaCipher_a247b687296399baaa09f96ce43def048}} 
+wstring {\bfseries convert} (const vector$<$ int $>$ \&v)
+\item 
+\mbox{\Hypertarget{classmodAlphaCipher_a3844ece8e55d28e4c51bbc294121b3d4}\label{classmodAlphaCipher_a3844ece8e55d28e4c51bbc294121b3d4}} 
+wstring {\bfseries get\+Valid\+Key} (const wstring \&s)
+\item 
+\mbox{\Hypertarget{classmodAlphaCipher_a98ba5ee1059bc16baa07ac69eef7ad80}\label{classmodAlphaCipher_a98ba5ee1059bc16baa07ac69eef7ad80}} 
+wstring {\bfseries get\+Valid\+Open\+Text} (const wstring \&s)
+\item 
+\mbox{\Hypertarget{classmodAlphaCipher_acc3f1004ee00de9d0fe1af453060d66d}\label{classmodAlphaCipher_acc3f1004ee00de9d0fe1af453060d66d}} 
+wstring {\bfseries get\+Valid\+Cipher\+Text} (const wstring \&s)
+\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmodAlphaCipher_a55c2d70b970fdded87ea66e682483ce5}\label{classmodAlphaCipher_a55c2d70b970fdded87ea66e682483ce5}} 
+const wstring {\bfseries num\+Alpha} = L\char`\"{}АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ\char`\"{}
+\item 
+\mbox{\Hypertarget{classmodAlphaCipher_ace08758022c05ba498735fd1494254f7}\label{classmodAlphaCipher_ace08758022c05ba498735fd1494254f7}} 
+map$<$ wchar\+\_\+t, int $>$ {\bfseries alpha\+Num}
+\item 
+\mbox{\Hypertarget{classmodAlphaCipher_a318efb0cdcd8bc0c084097e175c2006b}\label{classmodAlphaCipher_a318efb0cdcd8bc0c084097e175c2006b}} 
+vector$<$ int $>$ {\bfseries key}
+\end{DoxyCompactItemize}
 
 
-\doxysubsection{Constructor \& Destructor Documentation}
+\doxysubsection{Конструктор(ы)}
 \mbox{\Hypertarget{classmodAlphaCipher_a5e2b42f76c91038870412d0b14d31544}\label{classmodAlphaCipher_a5e2b42f76c91038870412d0b14d31544}} 
 \index{modAlphaCipher@{modAlphaCipher}!modAlphaCipher@{modAlphaCipher}}
 \index{modAlphaCipher@{modAlphaCipher}!modAlphaCipher@{modAlphaCipher}}
@@ -23,12 +53,12 @@ wstring {\bfseries decrypt} (const wstring \&cipher\+\_\+text)
 
 Класс для шифровки текста 
 
-Для зашифровывания и расшифровывания предназначены методы encrypt и decrypt. \begin{DoxyWarning}{Warning}
+Для зашифровывания и расшифровывания предназначены методы encrypt и decrypt. \begin{DoxyWarning}{Предупреждения}
 Реализация для русскогоg языка 
 \end{DoxyWarning}
 
 
-\doxysubsection{Member Function Documentation}
+\doxysubsection{Методы}
 \mbox{\Hypertarget{classmodAlphaCipher_ad540be3199da225a63a9589ca62347ce}\label{classmodAlphaCipher_ad540be3199da225a63a9589ca62347ce}} 
 \index{modAlphaCipher@{modAlphaCipher}!encrypt@{encrypt}}
 \index{encrypt@{encrypt}!modAlphaCipher@{modAlphaCipher}}
@@ -41,7 +71,7 @@ wstring {\bfseries decrypt} (const wstring \&cipher\+\_\+text)
 
 Передаётся текст, который преобразуется в шифр методом прибавления к каждому символу ключа. Для того, чтобы не выходить за границы алфавита, используется деление по модулю. 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
 \item 
 /home/stud/\+Desktop/дз/\+Laba\+\_\+timp/1proga/header.\+h\item 
 /home/stud/\+Desktop/дз/\+Laba\+\_\+timp/1proga/mod\+Alpha\+Cipher.\+cpp\end{DoxyCompactItemize}

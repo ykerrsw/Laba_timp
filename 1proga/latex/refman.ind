@@ -1,0 +1,21 @@
+\begin{theindex}
+
+  \item {/home/stud/Desktop/дз/Laba\_timp/1proga/header.h}, 
+		\hyperpage{11}
+
+  \indexspace
+
+  \item {cipher\_error}, \hyperpage{7}
+
+  \indexspace
+
+  \item {encrypt}
+    \subitem {modAlphaCipher}, \hyperpage{9}
+
+  \indexspace
+
+  \item {modAlphaCipher}, \hyperpage{8}
+    \subitem {encrypt}, \hyperpage{9}
+    \subitem {modAlphaCipher}, \hyperpage{8}
+
+\end{theindex}
